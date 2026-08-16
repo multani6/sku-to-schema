@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "total_rows_analyzed": 1000,
+    "rule_coverage_pct": 8.1,
+    "note": "Rule coverage is intentionally scoped to Tier 1/2 (appliance domain) after v2 fix -- see script docstring for the v1 cross-domain bug this fixed."
+  },
+  "calibration_metric": {
+    "description": "Of rows LLM tagged HIGH confidence AND we could independently rule-check, % where the independent rule agrees",
+    "high_confidence_checkable_rows": 73,
+    "high_confidence_rule_agreement_pct": 100.0
+  },
+  "agreement_status_breakdown": {
+    "MATCH": 81,
+    "NO_RULE_COVERAGE": 919
+  },
+  "mismatches_needing_review": []
+}

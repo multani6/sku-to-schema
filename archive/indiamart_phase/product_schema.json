@@ -1,0 +1,18 @@
+{
+  "product_id": "",
+  "product_name": "",
+  "category": "",
+  "manufacturer": "",
+  "specifications": {
+    "voltage_rating": "",
+    "current_rating": "",
+    "operating_temperature": "",
+    "mounting_type": ""
+  },
+  "dimensions": "",
+  "material": "",
+  "certifications": [],
+  "price_range": "",
+  "source_type": "",
+  "confidence_scores": {}
+}

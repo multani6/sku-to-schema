@@ -1,0 +1,33 @@
+# Archived phase - keep scripts (iteration story), exclude raw scraped data
+archive/indiamart_phase/data/
+
+# Raw intermediate enrichment files - not needed for judges
+raw_data/html/*.json
+raw_data/html/tier1_output.csv
+raw_data/html/tier2_output.csv
+raw_data/html/tier3_input.csv
+raw_data/html/pdfs/
+
+# Keep the official organizer files
+!raw_data/html/Unihack_Sample_Dataset_-_Input.csv
+!raw_data/html/Unihack_Expected_Output_-_Deliv*.csv
+
+# Intermediate/checkpoint outputs - not needed for judges
+outputs/tier3_checkpoint.json
+outputs/tier3_enriched.json
+outputs/tier3_output.csv
+
+# Python
+scripts/__pycache__/
+**/__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Env/secrets - CRITICAL, never commit API keys
+.env
+*.env

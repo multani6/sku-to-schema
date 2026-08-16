@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "total_rows": 1000,
+    "tier1_count": 10,
+    "tier2_count": 74,
+    "tier3_count": 916
+  },
+  "tier_breakdown": {
+    "Tier 1 (full depth)": 10,
+    "Tier 2 (medium depth)": 74,
+    "Tier 3 (light depth)": 916
+  },
+  "confidence": {
+    "overall_unified": {
+      "HIGH": 95,
+      "MEDIUM": 878,
+      "LOW_REVIEW": 27
+    },
+    "by_tier": {
+      "Tier 1": {
+        "HIGH": 10
+      },
+      "Tier 2": {
+        "MEDIUM": 8,
+        "HIGH": 66
+      },
+      "Tier 3": {
+        "MEDIUM": 870,
+        "LOW_REVIEW": 27,
+        "HIGH": 19
+      }
+    },
+    "raw_values_by_tier": {
+      "Tier 1": {
+        "high": 10
+      },
+      "Tier 2": {
+        "medium": 8,
+        "high": 66
+      },
+      "Tier 3": {
+        "FAMILY_INFERRED": 870,
+        "LOW_CONFIDENCE_NEEDS_REVIEW": 27,
+        "EXACT_SKU_VERIFIED": 19
+      }
+    }
+  },
+  "category_breakdown_tier3": {
+    "Abrasives": 169,
+    "Electrical": 66,
+    "Hand Tools & Accessories": 35,
+    "Building Materials": 256,
+    "Lighting": 226,
+    "Power Tools": 137,
+    "Safety & PPE": 27
+  },
+  "category_method_breakdown_tier3": {
+    "MANUFACTURER_RULE": 770,
+    "KEYWORD_FALLBACK": 97,
+    "LLM_CLASSIFIED": 49
+  },
+  "data_quality": {
+    "unknown_manufacturer_count": 40,
+    "unknown_brand_count": 23,
+    "tier3_llm_call_failures": 0
+  },
+  "review_queue": [
+    {
+      "mfg_part_num": "D519127",
+      "part_desc": "D519127 Heater Kit",
+      "brand_name": "Unknown",
+      "manufacturer_name": "V & V Appliance Parts Inc",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "LNL65301",
+      "part_desc": "LNL65301 Digital Tire Pressure - Inflator Gauge",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "59-J",
+      "part_desc": "Light Buff 59-J Mortar - Type N",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Rees Cast Stone Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "44-A",
+      "part_desc": "Light Chocolate 44-A Mortar - Type N",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Rees Cast Stone Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "61109087",
+      "part_desc": "Wh 4x4-39 Blank Post RDI",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "1513579",
+      "part_desc": "1x12-12 'Doug Fir STK Smooth 1S2E",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "1504345",
+      "part_desc": "OC Duration TruDef Wburg Gray (BDL)",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Palmer Donavin Manufacturing Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "7547",
+      "part_desc": "Ice Guard OC Weathr Lk Mat 2sq",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "1728ABL",
+      "part_desc": "2x2 Black Fine Fissured 1728BL",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Palmer Donavin Manufacturing Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "46719",
+      "part_desc": "49719 Wall Light Motion Wh",
+      "brand_name": "Maxsa",
+      "manufacturer_name": "Maxsa Innovations",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "NEB-FLT-0053",
+      "part_desc": "NEBFLT0053 2600L Flash Light",
+      "brand_name": "Unknown",
+      "manufacturer_name": "ACG Brands",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "97708",
+      "part_desc": "97708 Police 800L Headlight",
+      "brand_name": "Police",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "12-4 SO",
+      "part_desc": "12-4 SO Cord (Linear Foot)",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "23346-0408",
+      "part_desc": "23346-0408 Wire 16/3 SJEWA 250 (Linear Foot)",
+      "brand_name": "SJE",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "CG50K",
+      "part_desc": "CG50K 1/2\" Cord Grip Kit",
+      "brand_name": "Fenton Bros",
+      "manufacturer_name": "Fenton Bros Electric Inc",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "TP-1935",
+      "part_desc": "TP-1935 Hole Drilling System",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "173950TBK",
+      "part_desc": "4\"x8'-6\" DSI SQ Black Alum Post Wrap",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Palmer Donavin Manufacturing Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "173951TBK",
+      "part_desc": "6\"x8'-6\" DSI SQ Black Alum Post Wrap",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Palmer Donavin Manufacturing Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "173952TBK",
+      "part_desc": "6\"x10' DSI SQ Black Alum Post Wrap",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Palmer Donavin Manufacturing Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "MWUG42010524",
+      "part_desc": "UTW Pro Heated Glove Blk XL",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Tech Gear 5.7 Inc",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "5328",
+      "part_desc": "5328 Lg. Leather Phone Holster - Clip-on",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "25168",
+      "part_desc": "25168 Mason Line Brd Green - 250'",
+      "brand_name": "Century Components",
+      "manufacturer_name": "U S Tape Company",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "SSCMS",
+      "part_desc": "SSCMS Stealthstop Miter Sled",
+      "brand_name": "Woodpeckers",
+      "manufacturer_name": "Woodpeckers Inc",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "73045028",
+      "part_desc": "Custom Finyline Wh Gate Sq Bal",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Unknown",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    },
+    {
+      "mfg_part_num": "1513577",
+      "part_desc": "1x8-12' Doug Fir STK Smooth 1S2E",
+      "brand_name": "Unknown",
+      "manufacturer_name": "Westwood Lumber Sales",
+      "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
+      "tier": "Tier 3",
+      "llm_call_failed": false
+    }
+  ]
+}

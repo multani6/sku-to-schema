@@ -1,0 +1,183 @@
+"""
+generate_dashboard_data.py
+--------------------------------------
+Builds outputs/dashboard_data.json for the review-queue / confidence /
+category dashboard, sourced from the intermediate LLM-enriched JSON
+files (NOT the final submission CSV — confidence tags and category
+data get dropped during merge_final_output.py's schema-strict export,
+since those fields aren't part of the official 252-column schema).
+
+Sources:
+  Tier 1: raw_data/html/tier1_llm_enriched.json
+  Tier 2: raw_data/html/tier2_llm_enriched.json
+  Tier 3: outputs/tier3_enriched.json
+
+Key design decision: Tier 1/2 use "_llm_confidence" with values
+high/medium/low. Tier 3 uses the SAME field name but a different
+vocabulary (EXACT_SKU_VERIFIED/FAMILY_INFERRED/LOW_CONFIDENCE_NEEDS_
+REVIEW). This script normalizes both into one consistent
+"unified_confidence" bucket (HIGH/MEDIUM/LOW_REVIEW) so the dashboard
+shows one coherent signal instead of two incompatible label sets.
+
+Run:  python scripts/generate_dashboard_data.py
+"""
+
+import json
+import os
+import collections
+
+TIER1_PATH = "raw_data/html/tier1_llm_enriched.json"
+TIER2_PATH = "raw_data/html/tier2_llm_enriched.json"
+TIER3_PATH = "outputs/tier3_enriched.json"
+OUTPUT_PATH = "outputs/dashboard_data.json"
+
+# Cross-tier confidence normalization (see docstring above)
+CONFIDENCE_MAP = {
+    "high": "HIGH",
+    "medium": "MEDIUM",
+    "low": "LOW_REVIEW",
+    "EXACT_SKU_VERIFIED": "HIGH",
+    "FAMILY_INFERRED": "MEDIUM",
+    "LOW_CONFIDENCE_NEEDS_REVIEW": "LOW_REVIEW",
+    "": "LOW_REVIEW",
+}
+
+
+def load_json(path, tier_label):
+    if not os.path.exists(path):
+        print(f"⚠️  {tier_label} file not found at: {path}")
+        print(f"    (Skipping {tier_label} — dashboard will show data for the other tiers only.")
+        print(f"    If the real path is different, update the CONFIG paths at the top of this script.)")
+        return []
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def normalize_confidence(raw_value):
+    return CONFIDENCE_MAP.get(raw_value, "LOW_REVIEW")  # unrecognized value -> treat as needs-review, never silently drop
+
+
+def summarize_tier(records, tier_name):
+    total = len(records)
+    unified_counts = collections.Counter()
+    raw_counts = collections.Counter()
+    review_sample = []
+
+    for r in records:
+        raw_conf = r.get("_llm_confidence", "")
+        unified = normalize_confidence(raw_conf)
+        unified_counts[unified] += 1
+        raw_counts[raw_conf if raw_conf else "(missing)"] += 1
+
+        if unified == "LOW_REVIEW" and len(review_sample) < 25:
+            review_sample.append({
+                "mfg_part_num": r.get("Mfg_Part_Num", ""),
+                "part_desc": r.get("Part_Desc", ""),
+                "brand_name": r.get("BRAND_NAME", ""),
+                "manufacturer_name": r.get("MANUFACTURER_NAME", ""),
+                "raw_confidence": raw_conf,
+                "tier": tier_name,
+                "llm_call_failed": r.get("_llm_call_failed", False),
+            })
+
+    return {
+        "total_rows": total,
+        "unified_confidence_breakdown": dict(unified_counts),
+        "raw_confidence_breakdown": dict(raw_counts),  # kept for transparency/debugging
+        "review_sample": review_sample,
+    }
+
+
+def main():
+    tier1 = load_json(TIER1_PATH, "Tier 1")
+    tier2 = load_json(TIER2_PATH, "Tier 2")
+    tier3 = load_json(TIER3_PATH, "Tier 3")
+
+    tier1_summary = summarize_tier(tier1, "Tier 1")
+    tier2_summary = summarize_tier(tier2, "Tier 2")
+    tier3_summary = summarize_tier(tier3, "Tier 3")
+
+    # ---- Overall unified confidence across all tiers ----
+    overall_unified = collections.Counter()
+    for summary in (tier1_summary, tier2_summary, tier3_summary):
+        for k, v in summary["unified_confidence_breakdown"].items():
+            overall_unified[k] += v
+
+    # ---- Category breakdown (Tier 3 only — Tier 1/2 don't carry a
+    # 'category' field the same way; they're pre-classified into
+    # dishwashers / major-appliance subtypes at the file level) ----
+    category_breakdown = collections.Counter(r.get("category", "Unknown") for r in tier3)
+    category_method_breakdown = collections.Counter(r.get("category_method", "Unknown") for r in tier3)
+
+    # ---- Manufacturer/brand data quality: how many rows still show
+    # "Unknown" after enrichment (an honest gap, not hidden) ----
+    unknown_manufacturer_count = sum(
+        1 for r in (tier1 + tier2 + tier3)
+        if r.get("MANUFACTURER_NAME", "").strip().lower() in ("", "unknown")
+    )
+    unknown_brand_count = sum(
+        1 for r in (tier1 + tier2 + tier3)
+        if r.get("BRAND_NAME", "").strip().lower() in ("", "unknown")
+    )
+
+    # ---- Tier 3 specific: LLM call failures (a real bug category —
+    # rows where even the retry+repair logic in tier3_enrich.py
+    # couldn't get valid JSON back) ----
+    tier3_llm_failures = sum(1 for r in tier3 if r.get("_llm_call_failed") is True)
+
+    dashboard_data = {
+        "meta": {
+            "total_rows": len(tier1) + len(tier2) + len(tier3),
+            "tier1_count": len(tier1),
+            "tier2_count": len(tier2),
+            "tier3_count": len(tier3),
+        },
+        "tier_breakdown": {
+            "Tier 1 (full depth)": tier1_summary["total_rows"],
+            "Tier 2 (medium depth)": tier2_summary["total_rows"],
+            "Tier 3 (light depth)": tier3_summary["total_rows"],
+        },
+        "confidence": {
+            "overall_unified": dict(overall_unified),
+            "by_tier": {
+                "Tier 1": tier1_summary["unified_confidence_breakdown"],
+                "Tier 2": tier2_summary["unified_confidence_breakdown"],
+                "Tier 3": tier3_summary["unified_confidence_breakdown"],
+            },
+            "raw_values_by_tier": {
+                "Tier 1": tier1_summary["raw_confidence_breakdown"],
+                "Tier 2": tier2_summary["raw_confidence_breakdown"],
+                "Tier 3": tier3_summary["raw_confidence_breakdown"],
+            },
+        },
+        "category_breakdown_tier3": dict(category_breakdown),
+        "category_method_breakdown_tier3": dict(category_method_breakdown),
+        "data_quality": {
+            "unknown_manufacturer_count": unknown_manufacturer_count,
+            "unknown_brand_count": unknown_brand_count,
+            "tier3_llm_call_failures": tier3_llm_failures,
+        },
+        "review_queue": (
+            tier1_summary["review_sample"]
+            + tier2_summary["review_sample"]
+            + tier3_summary["review_sample"]
+        ),
+    }
+
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(dashboard_data, f, indent=2, ensure_ascii=False)
+
+    print(f"✅ Saved: {OUTPUT_PATH}\n")
+    print("--- QUICK PREVIEW ---")
+    print(json.dumps(dashboard_data["meta"], indent=2))
+    print(f"\nOverall unified confidence: {dashboard_data['confidence']['overall_unified']}")
+    print(f"Tier 3 category breakdown: {dashboard_data['category_breakdown_tier3']}")
+    print(f"Review queue size: {len(dashboard_data['review_queue'])}")
+    print(f"Unknown manufacturer count: {unknown_manufacturer_count}")
+    print(f"Unknown brand count: {unknown_brand_count}")
+    print(f"Tier 3 LLM call failures: {tier3_llm_failures}")
+
+
+if __name__ == "__main__":
+    main()
