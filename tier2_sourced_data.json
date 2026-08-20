@@ -1,0 +1,411 @@
+{
+  "_meta": {
+    "purpose": "Day 1 sourcing results for Tier 2 (74 rows). Keyed by Mfg_Part_Num. Apply via apply_tier2_fixes.py",
+    "source_type_values": ["MANUFACTURER_VERIFIED", "AUTHORIZED_DEALER_VERIFIED", "LLM_INFERRED"],
+    "note": "corrected_brand_name / corrected_manufacturer_name are ONLY present for the 6 rows with confirmed brand-mismatch bugs. All other rows keep existing BRAND_NAME/MANUFACTURER_NAME."
+  },
+  "rows": {
+    "DF7004WE": {
+      "mfr_url": "https://speedqueen.com/products/front-load-electric-dryers/df7004we/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DF7 sanitizing electric dryer with front control, featuring a Pet Plus cycle for pet hair removal, steam refresh and steam sanitize functions, and over-dry protection technology. Backed by a 5-year parts-and-labor warranty; ENERGY STAR certified."
+    },
+    "DR7004BE": {
+      "mfr_url": "https://speedqueen.com/products/electric-dryers/dr7004be/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DR7 sanitizing electric dryer in matte black with Pet Plus cycle, steam refresh/boost/sanitize functions, anti-static, and over-dry protection technology. ADA compliant; 5-year parts-and-labor warranty; ENERGY STAR certified."
+    },
+    "DV2000WE": {
+      "mfr_url": "https://speedqueen.com/commercial-to-retail/lde30rgs173tw01/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen commercial electric dryer, non-vended, with galvanized steel cylinder, 3 preset cycles (Perm Press/Knits, Regular/Delicate, Time Dry), reversible door, and 220 CFM high-efficiency exhaust blower for light-commercial laundry use."
+    },
+    "DC5004WE": {
+      "mfr_url": "https://speedqueen.com/products/electric-dryers/dc5004we/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DC5 sanitizing electric dryer with Pet Plus cycle, extended tumble, steam refresh/boost, and moisture sensor. ADA compliant with 5-year parts-and-labor warranty and ENERGY STAR certification."
+    },
+    "DC5004BE": {
+      "mfr_url": "https://speedqueen.com/products/electric-dryers/dc5004be/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DC5 sanitizing electric dryer in matte black with Pet Plus cycle, 6 preset cycles, steam boost/refresh, and moisture sensor. 5-year warranty, ENERGY STAR certified."
+    },
+    "WKE100HWA": {
+      "mfr_url": "https://www.lg.com/us/washers-dryers/lg-wke100hwa-washtower",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "LG Single Unit WashTower with Center Control, combining a 4.5 cu ft washer and 7.4 cu ft electric dryer in one vertical unit. Features AI sensors for fabric care, Allergiene steam wash cycle, moisture-sensing auto dry, and ThinQ app connectivity. ENERGY STAR certified.",
+      "flag_note": "Catalog's original dimensions (30x38.75x31.5) do not match LG's official spec (27W x 74-3/8H x 30-3/8D single-tower). Recommend reviewing dimension column."
+    },
+    "FF7011WN": {
+      "mfr_url": "https://speedqueen.com/products/front-load-washers/ff7011wn/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen FF7 front-load washer with Pet Plus and industry-exclusive Flea Removal cycle, Sanitize with Oxi, dynamic balancing, and fast cycle times. 5-year warranty, ADA compliant."
+    },
+    "PTD70GBPTDG": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-ENERGY-STAR-7-4-cu-ft-Capacity-Smart-aluminized-alloy-drum-Gas-Dryer-with-Sanitize-Cycle-and-Sensor-Dry-PTD70GBPTDG",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile smart gas dryer with aluminized alloy drum, sanitize cycle (reduces 99.8% of bacteria), sensor dry with dual thermistor technology, tangle control, and SmartHQ WiFi connectivity with Washer Link pairing. ENERGY STAR certified."
+    },
+    "PTD70GBSTWS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-ENERGY-STAR-7-4-cu-ft-Capacity-Smart-aluminized-alloy-drum-Gas-Dryer-with-Sanitize-Cycle-and-Sensor-Dry-PTD70GBSTWS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile smart gas dryer, white with silver backsplash, featuring sanitize cycle, sensor dry, tangle control, 120 ft venting capability, and SmartHQ WiFi connectivity with Washer Link."
+    },
+    "DR5004WG": {
+      "mfr_url": "https://speedqueen.com/products/gas-dryers/dr5004wg/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DR5 sanitizing gas dryer with steam refresh/boost, over-dry protection technology, and commercial cool-down technology. 5-year parts-and-labor warranty, ENERGY STAR certified."
+    },
+    "DR7004BG": {
+      "mfr_url": "https://speedqueen.com/products/gas-dryers/dr7004bg/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DR7 sanitizing gas dryer in matte black with Pet Plus cycle, steam refresh/boost/sanitize, anti-static, and over-dry protection technology. 7-year warranty, ENERGY STAR certified."
+    },
+    "DR7004WG": {
+      "mfr_url": "https://speedqueen.com/products/gas-dryers/dr7004wg/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DR7 sanitizing gas dryer with Pet Plus cycle, steam refresh/boost/sanitize, anti-static, and over-dry protection technology. 7-year warranty, ENERGY STAR certified."
+    },
+    "DV2000WG": {
+      "mfr_url": "https://www.pcrichard.com/speed-queen-dv2-27-in-7.0-cu-ft-commercial-gas-dryer-white/DV2000WG.html",
+      "source_type": "AUTHORIZED_DEALER_VERIFIED",
+      "marketing_description": "Speed Queen commercial gas dryer, non-vended, with galvanized steel cylinder and preset commercial cycles for light-commercial laundry use."
+    },
+    "DC5004WG": {
+      "mfr_url": "https://speedqueen.com/products/gas-dryers/dc5004wg/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DC5 sanitizing gas dryer with Pet Plus cycle, extended tumble, steam refresh/boost, and moisture sensor. ADA compliant, 5-year warranty, ENERGY STAR certified."
+    },
+    "DC5004BG": {
+      "mfr_url": "https://speedqueen.com/products/gas-dryers/dc5004bg/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen DC5 sanitizing gas dryer in matte black with Pet Plus cycle, 6 preset cycles, steam boost/refresh, and moisture sensor. 5-year warranty, ENERGY STAR certified."
+    },
+    "PTW705BSTWS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-ENERGY-STAR-5-3-cu-ft-Capacity-Washer-with-Smarter-Wash-Technology-and-FlexDispense-PTW705BSTWS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile top-load washer with Smarter Wash adaptive technology, FlexDispense dedicated compartments, Microban antimicrobial protection, and Sanitize with Oxi cycle. Built-in WiFi with SmartHQ app control. ENERGY STAR certified."
+    },
+    "MVWP586GW": {
+      "mfr_url": "https://www.maytag.com/washers-and-dryers/washers/top-load-washers/p.commercial-grade-residential-agitator-washer-3.5-cu.-ft.mvwp586gw.html",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Maytag commercial-grade agitator washer with 1/2 HP motor, dual-action agitator, galvanized steel panels, and stainless steel drum. PowerWash cycle with selectable deep-water level. 5-year parts-and-labor warranty, 10-year limited parts warranty on basket and motor."
+    },
+    "TV2000WN": {
+      "mfr_url": "https://www.grandappliance.com/product/speed-queen-commercial-32-cu-ft-white-agitator-non-vended-top-load-electric-washer-tv2000wn-1167247",
+      "source_type": "AUTHORIZED_DEALER_VERIFIED",
+      "marketing_description": "Speed Queen commercial top-load washer with stainless steel tub, curved four-vane agitator (210 degree wash stroke), automatic balancing suspension, and manual homestyle controls."
+    },
+    "TC5003BN": {
+      "mfr_url": "https://speedqueen.com/products/top-load-washers/tc5003bn/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen TC5 top-load washer with Classic Clean aggressive wash action, no lid lock (add items mid-cycle), and commercial-quality balancing components. 5-year warranty.",
+      "corrected_brand_name": "Speed Queen",
+      "corrected_manufacturer_name": "Alliance Laundry Systems",
+      "bug_note": "Dataset had BRAND_NAME=LG, MANUFACTURER_NAME=LG Electronics. Confirmed 100% Speed Queen via speedqueen.com product page."
+    },
+    "TR7006WN": {
+      "mfr_url": "https://speedqueen.com/products/top-load-washers/tr7006wn/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen TR7 ultra-quiet top-load washer with Perfect Wash technology, delayed lid-lock, and 8 special cycles. Measures 43dB during agitation. 7-year warranty, built for 25 years of life."
+    },
+    "TR7006BN": {
+      "mfr_url": "https://speedqueen.com/products/top-load-washers/tr7006bn/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen TR7 ultra-quiet top-load washer with Perfect Wash technology, delayed lid-lock, matte black finish, 8 special cycles. 43dB agitation noise, 7-year warranty."
+    },
+    "TR5006WN": {
+      "mfr_url": "https://speedqueen.com/products/top-load-washers/tr5006wn/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Speed Queen TR5 ultra-quiet top-load washer with Perfect Wash technology, delayed lid-lock, and automatic balancing. Measures 43dB during agitation. 5-year warranty, built for 25 years of life."
+    },
+    "XOU2470BCGS": {
+      "mfr_url": "https://xoappliance.com/xo_products/xou2470bcgs/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "XO Tall Beverage Column Refrigerator with 15 cubic foot interior, adjustable shelves, tri-color LED lighting (Theater White, Midnight Blue, Honey Amber), and CSA Commercial Grade certification.",
+      "corrected_brand_name": "XO Appliance",
+      "corrected_manufacturer_name": "XO Appliance",
+      "bug_note": "Dataset had BRAND_NAME=GE Cafe. XO Appliance is an independent refrigeration company with zero relation to GE. Confirmed via xoappliance.com."
+    },
+    "XOU24BCGSR": {
+      "mfr_url": "https://xoappliance.com/",
+      "source_type": "AUTHORIZED_DEALER_VERIFIED",
+      "marketing_description": "XO 24-inch beverage center with adjustable shelves, tri-color LED lighting, and CSA Commercial Grade certification for undercounter installation.",
+      "corrected_brand_name": "XO Appliance",
+      "corrected_manufacturer_name": "XO Appliance",
+      "bug_note": "Same XOU-prefix bug as XOU2470BCGS. Dataset had BRAND_NAME=GE Cafe; actual brand is XO Appliance."
+    },
+    "XOU24WDZGBR": {
+      "mfr_url": "https://xoappliance.com/",
+      "source_type": "AUTHORIZED_DEALER_VERIFIED",
+      "marketing_description": "XO 24-inch beverage center in black finish with adjustable shelves and CSA Commercial Grade certification for undercounter installation.",
+      "corrected_brand_name": "XO Appliance",
+      "corrected_manufacturer_name": "XO Appliance",
+      "bug_note": "Same XOU-prefix bug as XOU2470BCGS. Dataset had BRAND_NAME=GE Cafe; actual brand is XO Appliance."
+    },
+    "C7CDAAS3PD3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Specialty-Drip-Coffee-Maker-C7CDAAS3PD3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Specialty Drip Coffee Maker, SCA-certified, with reusable titanium-plated micro-fine mesh filter, adjustable brew strength, programmable 24-hour timer, and WiFi connectivity. 10-cup thermal carafe."
+    },
+    "C7CDAAS4PW3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Specialty-Drip-Coffee-Maker-C7CDAAS4PW3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Specialty Drip Coffee Maker in matte white, SCA-certified, with reusable titanium-plated micro-fine mesh filter, adjustable brew strength, and WiFi connectivity."
+    },
+    "C7CDABS2RS3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Specialty-Drip-Coffee-Maker-with-Glass-Carafe-C7CDABS2RS3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Specialty Drip Coffee Maker with glass carafe, SCA certification, and precision controls for brew strength and temperature."
+    },
+    "C7CDABS3RD3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Specialty-Drip-Coffee-Maker-with-Glass-Carafe-C7CDABS3RD3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Specialty Drip Coffee Maker with glass carafe in matte black, SCA certification, and precision brew controls."
+    },
+    "C7CDABS4RW3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Specialty-Drip-Coffee-Maker-with-Glass-Carafe-C7CDABS4RW3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Specialty Drip Coffee Maker with glass carafe in matte white, SCA certification, and precision brew controls."
+    },
+    "C7CEBBS2RS3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-AFFETTO-Automatic-Espresso-Machine-Frother-C7CEBBS2RS3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe AFFETTO Automatic Espresso Machine with one-touch brewing, integrated steam frother, and seamless modern design for cafe-style drinks."
+    },
+    "C7CEBBS4RW3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-AFFETTO-Automatic-Espresso-Machine-Frother-C7CEBBS4RW3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe AFFETTO Automatic Espresso Machine in matte white with one-touch brewing and integrated steam frother."
+    },
+    "C7CESAS2RS3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-BELLISSIMO-Semi-Automatic-Espresso-Machine-Frother-C7CESAS2RS3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Bellissimo semi-automatic espresso machine with integrated steam frother, 15-bar pump, built-in conical burr grinder (15 grind levels), and WiFi connectivity."
+    },
+    "C7CESAS3RD3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-BELLISSIMO-Semi-Automatic-Espresso-Machine-Frother-C7CESAS3RD3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Bellissimo semi-automatic espresso machine in matte black with integrated steam frother, 15-bar pump, and built-in conical burr grinder."
+    },
+    "C7CESAS4RW3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-BELLISSIMO-Semi-Automatic-Espresso-Machine-Frother-C7CESAS4RW3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Bellissimo semi-automatic espresso machine in matte white with integrated steam frother, 15-bar pump, and built-in conical burr grinder."
+    },
+    "WOSP30100SS": {
+      "mfr_url": "https://www.beko.com/us-en/products/microwaves/built-in-microwave-950-w-44-l-wosp30100ss",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Beko built-in speed microwave (950W, 44L) combining microwave, convection, and grilling functions. Automatic sensor programs and multi-stage cooking.",
+      "flag_note": "Product is a built-in speed microwave, not a standard wall oven. Catalog's 'Wall Oven' descriptor is imprecise but brand/manufacturer are correct."
+    },
+    "MSER2090S": {
+      "mfr_url": "https://www.lg.com/us/cooking-appliances/lg-mser2090s-counter-top-microwave",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "LG NeoChef countertop microwave with Smart Inverter for precision heating, Sensor Cook humidity-sensing technology, SmoothTouch glass controls, EasyClean interior, and child-resistant door lock."
+    },
+    "GCST16S1WSS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-1-6-Cu-Ft-Countertop-Microwave-Oven-GCST16S1WSS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE countertop microwave with sensor cooking (moisture-monitoring auto-adjust), weight & time defrost, two-step child lock, and instant-on controls."
+    },
+    "PCWK15C1WSS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-1-5-Cu-Ft-Countertop-Convection-Microwave-Oven-PCWK15C1WSS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile convection/microwave oven with Scan to Cook barcode technology, sensor cooking, warming oven mode, built-in capability with optional trim kit, and WiFi connectivity via SmartHQ app.",
+      "flag_note": "GE sub-brand is 'GE Profile', dataset says plain 'GE' -- correct family, imprecise sub-brand."
+    },
+    "SMC2266KS": {
+      "mfr_url": "https://shop.sharpusa.com/sharp-2-2-cu-ft-1200w-stainless-steel-countertop-microwave-oven-with-inverter-technology-smc2266ks/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Sharp countertop microwave with Inverter Technology for even cooking power, sensor cook menu, auto defrost, and melt/soften controls. Express Cook one-touch up to 6 minutes.",
+      "corrected_brand_name": "Sharp",
+      "corrected_manufacturer_name": "Sharp",
+      "bug_note": "Dataset had BRAND_NAME=Samsung. Confirmed via multiple retailers and sharpusa.com -- SMC prefix is Sharp's naming convention, not Samsung's."
+    },
+    "SMD2479JS": {
+      "mfr_url": "https://shop.sharpusa.com/24-in-1-2-cu-ft-950w-sharp-stainless-steel-smart-easy-wave-open-microwave-drawer-oven-smd2479js/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Sharp 24-inch microwave drawer oven with Easy Wave Open touchless motion sensor, built-in airflow venting for proud-mount or flush installation, Alexa voice control (35+ commands), and Touch Glass Controls at 45-degree angle."
+    },
+    "PEP9030DTBB": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-30-Built-In-Touch-Control-Electric-Cooktop-PEP9030DTBB",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile 30-inch electric cooktop with 5 radiant elements, SyncBurners technology, Precision Temperature Control (100-500F), built-in WiFi, and Chef Connect hood synchronization.",
+      "flag_note": "GE sub-brand is 'GE Profile', dataset says plain 'GE'."
+    },
+    "CES700P3MD1": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-30-Smart-Slide-In-Front-Control-Radiant-and-Convection-Range-CES700P3MD1",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe 30-inch slide-in electric range with True European Convection, WiFi Connect via SmartHQ app, temperature probe, warming drawer, and edge-to-edge glass cooktop with power boil element."
+    },
+    "PS960YPFS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-30-Smart-Slide-In-Electric-Double-Oven-Convection-Fingerprint-Resistant-Range-PS960YPFS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile 30-inch slide-in double oven electric range with True Convection, no-preheat air fry, WiFi Connect via SmartHQ, and Chef Connect. 6.6 cu ft total capacity (2.2 upper + 4.4 lower).",
+      "flag_note": "GE sub-brand is 'GE Profile', dataset says plain 'GE'."
+    },
+    "PB900YVFS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-ENERGY-STAR-30-Smart-Free-Standing-Electric-Convection-Fingerprint-Resistant-Range-with-No-Preheat-Air-Fry-PB900YVFS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile ENERGY STAR 30-inch free-standing electric range with No Preheat Air Fry, True Convection, built-in WiFi via SmartHQ, and hidden bake element for easy cleaning."
+    },
+    "PCFE3080AF": {
+      "mfr_url": "",
+      "source_type": "LLM_INFERRED",
+      "marketing_description": "",
+      "flag_note": "No verified manufacturer or authorized-dealer URL found for this exact model. BRAND_NAME=GE Cafe pattern-matches (PCF prefix consistent with Cafe naming), but left honestly blank rather than guessed."
+    },
+    "LSEL6333ZE": {
+      "mfr_url": "https://www.lg.com/us/cooking-appliances/lg-lsel6333ze-slide-in-electric-range",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "LG 6.3 cu ft slide-in electric range with UltraHeat 3000W element for quick boil/simmer, Air Fry (no preheat needed), EasyClean cycle, and ThinQ app connectivity for remote control and Alexa/Google integration."
+    },
+    "KSES530SBE": {
+      "mfr_url": "https://www.kitchenaid.com/major-appliances/ranges/electric-ranges/electric-slide-in-range/p.5.3-cu.-ft.-smart-slide-in-electric-range-with-two-even-heat-hyper-elements-and-convection-cooking-modes.kses530sbe.html",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "KitchenAid 5.3 cu ft slide-in electric range with two Even-Heat Hyper Elements, multiple convection modes (No Preheat Air Fry, Steam Bake, Air Roast, Proof Mode), WiFi connectivity, and Sabbath Mode. Assembled in Tulsa, Oklahoma."
+    },
+    "GCFG3661AF": {
+      "mfr_url": "https://www.frigidaire.com/en/p/kitchen/ranges/gas-ranges/GCFG3661AF",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Frigidaire Gallery 36-inch gas range with six-burner cooktop (two 18000 BTU Quick Boil burners, 5000 BTU simmer), Total Convection System (Air Fry, Slow Cook, Steam Bake), temperature probe, and Smudge-Proof stainless finish. ADA compliant."
+    },
+    "WSGS7530RZ": {
+      "mfr_url": "https://www.whirlpool.com/kitchen/cooking/ranges/slide-in/p.30-inch-smart-slide-in-gas-range-with-air-cooking-technology,-no-preheat-air-fry,-steam-self-clean-and-high-speed-preheat.wsgs7530rz.html",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Whirlpool 30-inch slide-in gas range with Air Cooking Technology (No Preheat Air Fry, Air Baking, Air Broil, Air Roast), EZ-2-Lift dishwasher-safe hinged cast-iron grates, Smart Feature Updates via app, and Steam/Self Clean."
+    },
+    "CHP90301TBB": {
+      "mfr_url": "https://cafeappliances.com/appliance/Cafe-Series-30-Built-In-Touch-Control-Induction-Cooktop-CHP90301TBB",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe 30-inch induction cooktop with 4 elements, Precision Temperature Control (100-500F with smart pan), Guided Cooking with video recipes, Rapid Boil, built-in WiFi, and Chef Connect. ENERGY STAR certified."
+    },
+    "CVM517P3RD1": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-1-7-Cu-Ft-Convection-Over-the-Range-Microwave-Oven-CVM517P3RD1",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe 1.7 cu ft over-the-range convection microwave with Air Fry, Steam Cook, Fast Cook (convection+microwave), sensor cooking, Chef Connect, and 10 power levels."
+    },
+    "PMOS1980AF": {
+      "mfr_url": "https://www.frigidaire.com/en/p/kitchen/microwaves/over-the-range-microwave/PMOS1980AF",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Frigidaire Professional 1.9 cu ft over-the-range microwave with Air Fry, Convection Bake (up to 425F), sensor cooking, PureAir filter with push-to-open door, and 400 CFM 3-speed ventilation.",
+      "corrected_brand_name": "Frigidaire Professional",
+      "corrected_manufacturer_name": "Electrolux",
+      "bug_note": "Dataset had BRAND_NAME=GE. Confirmed via frigidaire.com and multiple retailers -- this is a Frigidaire Professional product with zero GE relation."
+    },
+    "WMMS3330RZ": {
+      "mfr_url": "https://www.whirlpool.com/owners-center-pdp.WMMS3330RZ.html",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Whirlpool 30-inch over-the-range microwave with Sensor Cook auto-adjust, CleanRelease Non-Stick Interior, adjustable cooktop lighting (3 LED levels), and removable grease filter."
+    },
+    "KMMF530PBE": {
+      "mfr_url": "https://www.kitchenaid.com/major-appliances/hoods-and-vents/microwave-hood-combination/p.multifunction-over-the-range-microwave-oven-with-flush-built-in-design.kmmf530pbe.html",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "KitchenAid Multifunction over-the-range microwave combining air fryer, toaster oven, convection oven, microwave, and ventilation hood in one flush-built-in appliance. Cooks up to 450F with triple heating elements."
+    },
+    "JXGRILL1": {
+      "mfr_url": "https://www.geappliances.com/appliance/REVERSIBLE-GRILL-GRIDDLE-JXGRILL1",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE reversible cast-iron grill/griddle accessory for select GE and GE Profile gas ranges, PFAS-free cooking surface, compatible with edge-to-edge grate systems."
+    },
+    "C9TMA2S3PD3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Express-Finish-Toaster-C9TMA2S3PD3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe 2-slice toaster with Express Finish quick-toast mode, extra-wide 1.38-inch slots, LED progress ring, 4 preset functions (Express, Bagel, Reheat, Frozen), 8 shade options, and copper-finish removable crumb tray."
+    },
+    "C9TMA2S4PW3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Express-Finish-Toaster-C9TMA2S4PW3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe 2-slice toaster in matte white with Express Finish quick-toast mode, extra-wide slots, LED progress ring, and 4 preset functions."
+    },
+    "C90AAAS2RS3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Couture-Toaster-Oven-with-Air-Fry-C9OAAAS2RS3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Couture toaster oven with Air Fry, 14 cooking modes (Bake, Broil, Roast, Toast, Bagel, Pizza, Dehydrate, Slow Cook, etc.), CrispFinish feature, 6 quartz heating elements (80-450F range), and large capacity fitting 12-inch pizzas.",
+      "flag_note": "Dataset MPN 'C90AAAS2RS3' has a likely typo -- actual manufacturer model is 'C9OAAAS2RS3' (letter O, not zero). Brand is correct."
+    },
+    "C9TMA2SP2PS3": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-Express-Finish-Toaster-C9TMA2S2PS3",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe Express Finish 2-slice toaster in stainless steel with quick toast mode, extra-wide 1.38-inch slots, LED ring, and 4 preset functions.",
+      "flag_note": "Dataset MPN 'C9TMA2SP2PS3' has a likely typo -- actual manufacturer model is 'C9TMA2S2PS3' (extra P). Part_Desc field in dataset already has the correct MPN. Brand is correct."
+    },
+    "GDE21EMKES": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-ENERGY-STAR-21-0-Cu-Ft-Bottom-Freezer-Refrigerator-GDE21EMKES",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE ENERGY STAR bottom-freezer refrigerator with sliding snack drawer, factory-installed icemaker, advanced water filtration (reduces 50+ impurities), Turbo Cool setting, and Enhanced Shabbos Mode."
+    },
+    "FCM16SLWW": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-15-7-Cu-Ft-Manual-Defrost-Chest-Freezer-FCM16SLWW",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE ENERGY STAR manual defrost chest freezer with Power Outage Promise (48hr food safety), high temp indicator, two lift-out sliding baskets, LED interior lighting, and lock with key."
+    },
+    "GNE27JYMFS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-ENERGY-STAR-27-0-Cu-Ft-Fingerprint-Resistant-French-Door-Refrigerator-GNE27JYMFS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE ENERGY STAR French-door refrigerator with internal water dispenser, factory-installed icemaker with water filtration, spill-proof shelves, and enhanced Shabbos mode."
+    },
+    "CVE28DP3ND1": {
+      "mfr_url": "https://www.cafeappliances.com/appliance/CAFE-ENERGY-STAR-27-8-Cu-Ft-Smart-4-Door-French-Door-Refrigerator-CVE28DP3ND1",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Cafe 4-door French-door refrigerator with convertible drawer (5 temp settings: Soft Freeze, Meat, Beverage, Snacks, Wine, 23-42F range), LED light wall, Auto Fill water dispenser, and Humidity Control System for 2.5x longer leafy green freshness."
+    },
+    "GNE25JMKES": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-ENERGY-STAR-24-7-Cu-Ft-French-Door-Refrigerator-GNE25JMKES",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE ENERGY STAR French-door refrigerator with internal water dispenser, factory-installed icemaker (XWFE filter removes 50+ impurities), Turbo Cool/Turbo Freeze settings, and two-level freezer storage baskets."
+    },
+    "PRFS2883AF": {
+      "mfr_url": "https://www.frigidaire.com/en/p/kitchen/refrigerators/french-door-refrigerator/PRFS2883AF",
+      "source_type": "AUTHORIZED_DEALER_VERIFIED",
+      "marketing_description": "Frigidaire Professional French-door refrigerator with CrispSeal advanced crispers (ethylene adsorber filter), PurePour water filtration (99% contaminant reduction, NSF/WQA certified), variable speed compressor, and 3-setting adjustable temperature drawer."
+    },
+    "PAD28BYTFS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-ENERGY-STAR-28-4-Cu-Ft-Quad-Door-Refrigerator-with-Dual-Dispense-AutoFill-Pitcher-and-Door-in-Door-PAD28BYTFS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile Quad-Door refrigerator with Dual-Dispense AutoFill Pitcher, TwinChill dual evaporators, Enhanced Shabbos Mode, built-in WiFi via SmartHQ, and Door-in-Door design.",
+      "flag_note": "GE sub-brand is 'GE Profile', dataset says plain 'GE'."
+    },
+    "PGE29BYTFS": {
+      "mfr_url": "https://www.geappliances.com/appliance/GE-Profile-ENERGY-STAR-28-7-Cu-Ft-Smart-Fingerprint-Resistant-4-Door-French-Door-Refrigerator-With-Dual-Dispense-AutoFill-Pitcher-PGE29BYTFS",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "GE Profile 4-door French-door refrigerator with Dual-Dispense AutoFill Pitcher, showcase LED Light Wall, TwinChill Dual Evaporators, adjustable temperature drawer (4 settings), and built-in WiFi via SmartHQ.",
+      "flag_note": "GE sub-brand is 'GE Profile', dataset says plain 'GE'."
+    },
+    "ERFD19CGCS": {
+      "mfr_url": "https://www.appliancealliance.com/Element-ERFD19CGCS-Element-Electronics-18-4-cu-ft-French-Door-Refrigerator--Stainless-Steel-ENERGY-STAR-ERFD19CGCS",
+      "source_type": "AUTHORIZED_DEALER_VERIFIED",
+      "marketing_description": "Element Electronics 18.4 cu ft French-door refrigerator with crisper drawers (humidity-controlled), 6-gallon door bins, adjustable glass shelves, LED interior lighting, and no-frost bottom freezer with sliding baskets. ENERGY STAR certified."
+    },
+    "LT18S2100W": {
+      "mfr_url": "https://www.lg.com/us/refrigerators/lg-lt18s2100w-top-freezer-refrigerator",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "LG garage-ready top-freezer refrigerator with Multi-Air Flow System (digital sensors + strategic vents), reversible door, flat panel design with pocket handles, and Smart Inverter Compressor (10-year warranty). ENERGY STAR certified."
+    },
+    "LT18S2100SS": {
+      "mfr_url": "https://www.lg.com/us/refrigerators/lg-lt18s2100s-top-freezer-refrigerator",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "LG garage-ready top-freezer refrigerator in stainless steel with Multi-Air Flow System, reversible door, flat panel design, and Smart Inverter Compressor. ENERGY STAR certified.",
+      "flag_note": "Dataset MPN has trailing 'SS' (LT18S2100SS); LG's actual model suffix is 'S' (LT18S2100S). Minor MPN discrepancy, brand correct."
+    },
+    "EUF17CDBW": {
+      "mfr_url": "https://elementelectronics.com/product/element-17-0-cu-ft-upright-convertible-freezer-refrigerator-white-euf17cdbw/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Element 17 cu ft upright convertible freezer/refrigerator, switches modes via electronic control panel, R600a eco-friendly refrigerant, no-frost system, 4 adjustable shelves, logo-less white exterior."
+    },
+    "SLER30524SS": {
+      "mfr_url": "https://www.us-appliance.com/sler30524ss-beko-30-slide-in-electric-smooth-top-range-with-air-fry-and-digital-led-display-stainless-steel.html",
+      "source_type": "AUTHORIZED_DEALER_VERIFIED",
+      "marketing_description": "Beko 30-inch slide-in electric smooth-top range with Air Fry (no preheat needed), digital LED display, and 3-level programmable self-clean function.",
+      "corrected_brand_name": "Beko",
+      "corrected_manufacturer_name": "Beko",
+      "bug_note": "Dataset had BRAND_NAME=Samsung. Confirmed via retailer listing (us-appliance.com) -- SLER prefix is Beko's naming convention, not Samsung's. This row was missed during the live sourcing session and only caught by apply_tier2_fixes.py's unmatched-row report."
+    },
+    "EUF21CDBW": {
+      "mfr_url": "https://elementelectronics.com/product/element-21-0-cu-ft-upright-convertible-freezer-refrigerator-white-euf21cdbw/",
+      "source_type": "MANUFACTURER_VERIFIED",
+      "marketing_description": "Element 21 cu ft upright convertible freezer/refrigerator, switches modes via electronic control panel, R600a eco-friendly refrigerant, no-frost system, adjustable shelves, logo-less white exterior."
+    }
+  }
+}

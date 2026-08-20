@@ -2,10 +2,10 @@
   "meta": {
     "total_rows_analyzed": 1000,
     "rule_coverage_pct": 8.1,
-    "note": "Rule coverage is intentionally scoped to Tier 1/2 (appliance domain) after v2 fix -- see script docstring for the v1 cross-domain bug this fixed."
+    "note": "Rule coverage is intentionally scoped to Tier 1/2 (appliance domain) after v2 fix -- see script docstring for the v1 cross-domain bug this fixed. IMPORTANT: this rule table overlaps substantially with the MPN-prefix hints given to the LLM in the enrichment prompts, so the calibration metric below reflects INTERNAL CONSISTENCY, not independent ground-truth validation -- see module docstring."
   },
   "calibration_metric": {
-    "description": "Of rows LLM tagged HIGH confidence AND we could independently rule-check, % where the independent rule agrees",
+    "description": "Of rows LLM tagged HIGH confidence AND we could independently rule-check, % where the independent rule agrees. NOTE: 'independent' here means a separately-coded rule table, not a separately-sourced signal -- see caveat in meta.note above.",
     "high_confidence_checkable_rows": 73,
     "high_confidence_rule_agreement_pct": 100.0
   },

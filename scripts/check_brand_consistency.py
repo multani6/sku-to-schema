@@ -1,8 +1,9 @@
 import json
 
-# ⚠️ Apni Tier 2 enriched file ka sahi path yahan daal do
-INPUT_FILE = "../raw_data/html/tier2_llm_enriched.json"
-OUTPUT_FILE = "../outputs/brand_consistency_flags.csv"
+# Tier 2 enriched file path (root-relative, matches every other script
+# in this pipeline — run_pipeline.py invokes this from the project root)
+INPUT_FILE = "raw_data/html/tier2_llm_enriched.json"
+OUTPUT_FILE = "outputs/brand_consistency_flags.csv"
 
 # Known brand -> manufacturer mapping (jo bhi brands tumhare data mein hain, unko yahan add karte raho)
 KNOWN_BRANDS = [

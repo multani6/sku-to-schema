@@ -30,4 +30,8 @@ Thumbs.db
 
 # Env/secrets - CRITICAL, never commit API keys
 .env
-*.env
+*.envraw_data/html/tier2_test_copy.json
+
+# Backup/scratch files - not for judges
+scripts/*_BACKUP.py
+scripts/remaining_scripts_dump.txt

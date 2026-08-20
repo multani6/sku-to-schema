@@ -152,7 +152,7 @@ def call_llm(client: "Groq", prompt: str) -> dict:
                 model=MODEL,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.2,
-                max_tokens=400,
+                max_tokens=1500,
             )
             text = response.choices[0].message.content.strip()
             # Strip accidental markdown fences if the model adds them anyway

@@ -10,8 +10,16 @@ scales to Tier 2 and Tier 3 too (same script, different input list).
 Setup:
   pip install groq requests beautifulsoup4
 
-Run:
+Run (from the project root, e.g. via scripts/run_pipeline.py, or
+directly as `python scripts/scrape_and_extract_attributes.py` from
+the project root — NOT from inside scripts/):
   python scripts/scrape_and_extract_attributes.py
+
+Note (20 Aug 2026): this file was briefly patched to use "../"-prefixed
+paths on the assumption the pipeline should run from inside scripts/.
+A full scan of every script's path constants showed that's backwards —
+every other script in the pipeline uses root-relative paths. Reverted
+to the original, correct root-relative paths below.
 """
 
 import os
@@ -27,7 +35,7 @@ SOURCE_DATA_MODULE = "tier1_source_data"
 OUTPUT_PATH = "raw_data/html/tier1_final.json"  # overwrite in place
 
 API_KEY = os.environ.get("GROQ_API_KEY", "PASTE_YOUR_KEY_HERE")
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "openai/gpt-oss-120b"
 client = Groq(api_key=API_KEY)
 
 HEADERS = {

@@ -7,7 +7,14 @@ echoing the Part_Manuf distributor code?), and a few sample records
 printed for a human eyeball check — without dumping all 74 full
 records.
 
-Run: python scripts/diagnose_tier2_quality.py
+Run (from the project root, e.g. via scripts/run_pipeline.py):
+  python scripts/diagnose_tier2_quality.py
+
+Note (20 Aug 2026): this file was briefly patched to use "../"-prefixed
+paths on the assumption the pipeline should run from inside scripts/.
+A full scan of every script's path constants showed that's backwards —
+every other script in the pipeline uses root-relative paths. Reverted
+to the original, correct root-relative paths below.
 """
 
 import json

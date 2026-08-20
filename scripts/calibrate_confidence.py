@@ -16,6 +16,41 @@ actually the RULE being wrong, not the LLM. Fixed by scoping the rule
 table to only the domain it was built for (Tier 1/2). This is a real,
 documented bug in our own verification tooling -- kept in, not hidden.
 
+v3 fix (20 Aug 2026 — found via first full pipeline run): four prefix
+mappings here were STALE — they predated the Day 1 (19 Aug) manufacturer-
+attribution fixes verified and applied in enforce_manufacturer_
+consistency.py's AUTHORITATIVE_BRAND_MANUFACTURER table, but this rule
+table was never updated to match. That produced false "MISMATCH" flags
+for rows where the LLM/enforcement output was actually CORRECT and this
+script's own rule was wrong:
+    XOU  was mapped to "GE"      -> corrected to "XO Appliance"
+    TC5  was mapped to "LG"      -> corrected to "Alliance Laundry" (Speed Queen)
+    SMC  was mapped to "Samsung" -> corrected to "Sharp"
+    SLER was mapped to "Samsung" -> corrected to "Beko"
+Same lesson as the v2 fix: this script's rule table is a separate,
+hand-maintained source of truth from AUTHORITATIVE_BRAND_MANUFACTURER,
+so the two can silently drift apart. Worth keeping in sync going
+forward whenever a new prefix fix is verified.
+
+v4 fix (20 Aug 2026 — found in the v3-corrected calibration run): PDT
+and PDD prefixes were grouped with PDSH under "Electrolux", but PDT/PDD
+are GE Profile prefixes, not Frigidaire. Confirmed directly by Stage 2.5
+scraping logs: PDT715SYVFS and PDD415PYYFS both resolved to real
+geappliances.com product URLs (GE-Profile-...-PDT715SYVFS and
+GE-Profile-Double-Drawer-Dishwasher-PDD415PYYFS), which is independent
+evidence the manufacturer is GE, not Electrolux. Moved ^PDT|^PDD out of
+the Electrolux rule and into the GE rule. PDSH stays under Electrolux
+(that one is correct — PDSH4816AF is the Frigidaire benchmark row).
+
+v5 fix (20 Aug 2026 — found in the v4-corrected calibration run):
+ERF/EUF prefixes were grouped under "Electrolux", but all 3 mismatched
+rows (ERFD19CGCS, EUF17CDBW, EUF21CDBW) were independently verified via
+web search to be sold directly on elementelectronics.com's own official
+product pages — the strongest available evidence short of scraping the
+page ourselves. Moved ^ERF|^EUF out of the Electrolux rule into a new
+dedicated "Element Electronics" rule. The LLM's MANUFACTURER_NAME output
+was correct in all 3 cases; only this script's rule table was wrong.
+
 Design:
   - A hand-built prefix table (from patterns visible across tier1/tier2
     enriched data) maps MPN prefixes -> expected manufacturer, SCOPED to
@@ -46,25 +81,33 @@ TIER3_PATH = "outputs/tier3_enriched.json"
 OUTPUT_PATH = "outputs/confidence_calibration_report.json"
 
 # ---------------------------------------------------------------------
-# Independent rule-based signal, SCOPED TO APPLIANCE DOMAIN (Tier 1/2
-# only -- see v2 fix note above). Built purely from prefix patterns
-# observed across the Tier 1/2 dataset (dishwashers, dryers, washers,
-# ranges, microwaves, refrigerators, freezers) -- deliberately separate
-# from any table used inside the enrichment prompts themselves, so
-# agreement is a genuine independent check, not circular.
+# Rule-based signal, SCOPED TO APPLIANCE DOMAIN (Tier 1/2 only -- see
+# v2 fix note above). Built from prefix patterns observed across the
+# Tier 1/2 dataset (dishwashers, dryers, washers, ranges, microwaves,
+# refrigerators, freezers).
+#
+# HONEST CAVEAT: this rule table's prefix patterns substantially
+# overlap with the MPN-prefix hints already given to the LLM inside
+# enrich_tier1_llm.py's / enrich_tier2_llm.py's system prompts. That
+# means a high agreement % here mostly reflects INTERNAL CONSISTENCY
+# between the prompt's hints and the LLM's own output -- not a fully
+# independent, external ground-truth validation. Treat the calibration
+# metric below as an internal-consistency check, and present it that
+# way in the pitch/README, not as independent proof of accuracy.
 # ---------------------------------------------------------------------
 MPN_PREFIX_RULES = [
     (r"^KDFM|^KDTS|^KDPS|^KSES|^KMMF", "Whirlpool"),
     (r"^WDTS|^WDF|^WMMS|^WSGS", "Whirlpool"),
-    (r"^PDSH|^PDT|^PDD|^PRFS|^GCFG|^ERF|^EUF", "Electrolux"),
-    (r"^PEP|^PCFE|^PTD|^PTW|^PB9|^PS9|^PAD|^PGE|^GNE|^GDE|^GCST|^JXGRILL|^C7|^C9|^C90|^CVE|^CVM|^CHP|^CES|^XOU",
+    (r"^PDSH|^PRFS|^GCFG", "Electrolux"),
+    (r"^ERF|^EUF", "Element Electronics"),
+    (r"^PEP|^PCFE|^PTD|^PTW|^PB9|^PS9|^PAD|^PGE|^GNE|^GDE|^GCST|^JXGRILL|^C7|^C9|^C90|^CVE|^CVM|^CHP|^CES|^PDT|^PDD",
      "GE"),
-    (r"^LDPH|^LDT|^LDF|^LT18|^LSEL|^WKE|^MSER|^TC5", "LG"),
-    (r"^DF|^DR|^DV|^DC|^TV|^TR|^FF", "Alliance Laundry"),
+    (r"^XOU", "XO Appliance"),
+    (r"^LDPH|^LDT|^LDF|^LT18|^LSEL|^WKE|^MSER", "LG"),
+    (r"^DF|^DR|^DV|^DC|^TV|^TR|^FF|^TC5", "Alliance Laundry"),
     (r"^MVW", "Maytag"),
-    (r"^SMC|^SLER", "Samsung"),
-    (r"^SMD", "Sharp"),
-    (r"^WOSP", "Beko"),
+    (r"^SMC|^SMD", "Sharp"),
+    (r"^WOSP|^SLER", "Beko"),
 ]
 
 # Domains where the rule table above is valid. Extend this list only
@@ -149,10 +192,10 @@ def main():
         "meta": {
             "total_rows_analyzed": len(all_results),
             "rule_coverage_pct": coverage_rate,
-            "note": "Rule coverage is intentionally scoped to Tier 1/2 (appliance domain) after v2 fix -- see script docstring for the v1 cross-domain bug this fixed.",
+            "note": "Rule coverage is intentionally scoped to Tier 1/2 (appliance domain) after v2 fix -- see script docstring for the v1 cross-domain bug this fixed. IMPORTANT: this rule table overlaps substantially with the MPN-prefix hints given to the LLM in the enrichment prompts, so the calibration metric below reflects INTERNAL CONSISTENCY, not independent ground-truth validation -- see module docstring.",
         },
         "calibration_metric": {
-            "description": "Of rows LLM tagged HIGH confidence AND we could independently rule-check, % where the independent rule agrees",
+            "description": "Of rows LLM tagged HIGH confidence AND we could independently rule-check, % where the independent rule agrees. NOTE: 'independent' here means a separately-coded rule table, not a separately-sourced signal -- see caveat in meta.note above.",
             "high_confidence_checkable_rows": high_conf_total,
             "high_confidence_rule_agreement_pct": calibration_rate,
         },
@@ -167,6 +210,7 @@ def main():
     print(f"Analyzed {len(all_results)} rows across all tiers")
     print(f"Rule coverage (Tier 1/2 only, scoped after v2 fix): {coverage_rate}% of rows")
     print(f"\n--- CALIBRATION METRIC (the number that matters for Q&A) ---")
+    print(f"NOTE: this is an internal-consistency check, not independent ground-truth validation (see docstring).")
     print(f"High-confidence rows we could independently verify: {high_conf_total}")
     print(f"Of those, independent rule agreed: {high_conf_match} ({calibration_rate}%)")
     print(f"\nAgreement breakdown: {dict(status_counts)}")
