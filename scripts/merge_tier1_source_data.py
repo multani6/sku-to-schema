@@ -122,11 +122,16 @@ def merge_source_into_record(record, source):
     if source.get("smart_features"):
         record = fill_attribute_if_matching(record, ["smart feature", "connectivity", "wifi"], source["smart_features"])
 
+    # --- Verbatim/near-verbatim manufacturer marketing description ---
+    if source.get("marketing_description"):
+        record["MARKETING_DESCRIPTION"] = source["marketing_description"]
+        record["_marketing_source_type"] = source.get("marketing_source_type", "")
+        record["_marketing_note"] = source.get("marketing_note", "")
+
     record["_source_verification"] = source.get("verification", "NOT_FOUND")
     record["_source_notes"] = source.get("notes", "")
 
     return record
-
 
 def pad_mobile_desc(record):
     """

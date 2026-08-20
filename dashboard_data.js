@@ -62,8 +62,8 @@ window.DASHBOARD_DATA = {
     "LLM_CLASSIFIED": 49
   },
   "data_quality": {
-    "unknown_manufacturer_count": 40,
-    "unknown_brand_count": 23,
+    "unknown_manufacturer_count": 18,
+    "unknown_brand_count": 18,
     "tier3_llm_call_failures": 0
   },
   "review_queue": [
@@ -124,8 +124,8 @@ window.DASHBOARD_DATA = {
     {
       "mfg_part_num": "1504345",
       "part_desc": "OC Duration TruDef Wburg Gray (BDL)",
-      "brand_name": "Unknown",
-      "manufacturer_name": "Palmer Donavin Manufacturing Company",
+      "brand_name": "Owens Corning",
+      "manufacturer_name": "Owens Corning",
       "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
       "tier": "Tier 3",
       "llm_call_failed": false
@@ -142,8 +142,8 @@ window.DASHBOARD_DATA = {
     {
       "mfg_part_num": "1728ABL",
       "part_desc": "2x2 Black Fine Fissured 1728BL",
-      "brand_name": "Unknown",
-      "manufacturer_name": "Palmer Donavin Manufacturing Company",
+      "brand_name": "Armstrong Ceilings",
+      "manufacturer_name": "Armstrong Ceilings",
       "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
       "tier": "Tier 3",
       "llm_call_failed": false
@@ -277,8 +277,8 @@ window.DASHBOARD_DATA = {
     {
       "mfg_part_num": "73045028",
       "part_desc": "Custom Finyline Wh Gate Sq Bal",
-      "brand_name": "Unknown",
-      "manufacturer_name": "Unknown",
+      "brand_name": "RDI",
+      "manufacturer_name": "RDI",
       "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
       "tier": "Tier 3",
       "llm_call_failed": false
