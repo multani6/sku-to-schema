@@ -4,7 +4,7 @@
 
 Turns 1,000 raw, messy distributor rows into the official 252-column commerce-ready catalog schema, with explainable confidence tags and honest data-quality flags instead of fabricated values.
 
-**Live demo:** https://multani6.github.io/sku-to-schema/
+**Live demo:**  https://multani6.github.io/sku-to-schema/
 ---
 
 ## The problem
