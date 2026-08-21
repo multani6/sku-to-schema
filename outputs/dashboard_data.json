@@ -60,8 +60,8 @@
     "LLM_CLASSIFIED": 49
   },
   "data_quality": {
-    "unknown_manufacturer_count": 18,
-    "unknown_brand_count": 18,
+    "unknown_manufacturer_count": 16,
+    "unknown_brand_count": 15,
     "tier3_llm_call_failures": 0
   },
   "review_queue": [
@@ -104,8 +104,8 @@
     {
       "mfg_part_num": "61109087",
       "part_desc": "Wh 4x4-39 Blank Post RDI",
-      "brand_name": "Unknown",
-      "manufacturer_name": "Unknown",
+      "brand_name": "RDI",
+      "manufacturer_name": "RDI",
       "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
       "tier": "Tier 3",
       "llm_call_failed": false
@@ -131,8 +131,8 @@
     {
       "mfg_part_num": "7547",
       "part_desc": "Ice Guard OC Weathr Lk Mat 2sq",
-      "brand_name": "Unknown",
-      "manufacturer_name": "Unknown",
+      "brand_name": "Owens Corning",
+      "manufacturer_name": "Owens Corning",
       "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
       "tier": "Tier 3",
       "llm_call_failed": false
@@ -239,8 +239,8 @@
     {
       "mfg_part_num": "MWUG42010524",
       "part_desc": "UTW Pro Heated Glove Blk XL",
-      "brand_name": "Unknown",
-      "manufacturer_name": "Tech Gear 5.7 Inc",
+      "brand_name": "Mobile Warming by Fieldsheer",
+      "manufacturer_name": "Mobile Warming by Fieldsheer",
       "raw_confidence": "LOW_CONFIDENCE_NEEDS_REVIEW",
       "tier": "Tier 3",
       "llm_call_failed": false

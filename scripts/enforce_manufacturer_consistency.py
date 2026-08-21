@@ -30,6 +30,22 @@ bug-classes found, distinct from the ones above:
 (a) and (b) are handled by resolve_brand_alias(), run BEFORE grouping.
 (c) is handled by MANUAL_MANUFACTURER_OVERRIDES, applied AFTER grouping
 so majority-vote doesn't overwrite it back.
+
+Fix (21 Aug 2026, Day 3, review-queue cross-check against actual data):
+three more rows found still Unknown/wrong after all prior fixes —
+brittleness in exact-substring alias matching:
+  - 61109087: Part_Desc contains "RDI" verbatim but "RDI" wasn't itself
+    a key in BRAND_ALIAS_TO_MANUFACTURER (only a value). Added as a
+    case-(b) Unknown-masking key.
+  - 7547: Part_Desc has abbreviated "OC Weathr Lk", not the full
+    "OC WeatherLock" already in the table. Added the abbreviated form
+    as a second alias key mapping to the same manufacturer.
+  - MWUG42010524: 11th sibling of the Tech Gear -> Mobile Warming by
+    Fieldsheer family (10 siblings already fixed), but this row's
+    BRAND_NAME is itself "Unknown" and Part_Desc doesn't contain "Tech
+    Gear", so neither case (a) nor (b) fired. Added an MPN-prefix
+    override so it joins the existing 10-row brand group and gets the
+    correct MANUFACTURER_NAME via majority-vote.
 """
 
 import json
@@ -84,6 +100,9 @@ BRAND_ALIAS_TO_MANUFACTURER = {
     "Fine Fissured": "Armstrong Ceilings",
     "XT": "Bow Products",
     "Tech Gear": "Mobile Warming by Fieldsheer",
+    # --- Day 3 (21 Aug) review-queue fixes: exact-substring brittleness ---
+    "OC Weathr Lk": "Owens Corning",  # abbreviated form found in Part_Desc for MPN 7547
+    "RDI": "RDI",  # Unknown-masking: "RDI" itself appears verbatim in Part_Desc for MPN 61109087
 }
 
 # NEW (Day 2, 20 Aug): third-party "compatible-with" mislabeling.
@@ -121,6 +140,14 @@ MPN_PREFIX_BRAND_OVERRIDES = {
     # "PMOS": "Frigidaire Professional",
     # "SLER": "Beko",
     "PCFE": "Frigidaire Professional",
+    # Day 3 (21 Aug): MWUG42010524 is the 11th sibling of the Tech Gear
+    # family (10 already fixed via resolve_brand_alias), but its own
+    # BRAND_NAME is "Unknown" and Part_Desc doesn't contain "Tech Gear",
+    # so neither case (a) nor (b) of resolve_brand_alias fires on it.
+    # This override sets BRAND_NAME so it joins the existing 10-row
+    # Mobile Warming by Fieldsheer group, and majority-vote in main()
+    # then fixes MANUFACTURER_NAME automatically.
+    "MWUG4201": "Mobile Warming by Fieldsheer",
 }
 
 
