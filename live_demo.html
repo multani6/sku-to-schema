@@ -260,7 +260,7 @@ const ROWS = [
       ["Drying Technology", "Electric", false]
     ],
     badge: ["medium", "MEDIUM CONFIDENCE"],
-    note: "Manufacturer resolved via an authoritative override table, not majority vote — an earlier version of this pipeline let statistical majority overrule the correct answer here (Speed Queen ≠ Whirlpool, despite similar MPN patterns dominating the batch).",
+    note: "Manufacturer resolved via an authoritative override table, not majority vote — an earlier version of this pipeline let a wrong BRAND_NAME (LG) slip through for a Speed Queen unit before the MPN-prefix override caught it.",
     caption: "<b>Why this row matters:</b> proves the pipeline works outside its original dishwasher-only design — same logic, applied to laundry appliances, deliberately shallower depth than Tier 1."
   }
 ];

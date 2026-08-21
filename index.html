@@ -129,7 +129,7 @@ const DEMO_ROWS = [
     ],
     badge: "MEDIUM",
     badgeLabel: "MEDIUM CONFIDENCE",
-    note: "Manufacturer resolved via an authoritative override table, not majority vote — an earlier version of this pipeline let statistical majority overrule the correct answer here (Speed Queen ≠ Whirlpool, despite similar MPN patterns dominating the batch).",
+    note: "Manufacturer resolved via an authoritative override table, not majority vote — an earlier version of this pipeline let a wrong BRAND_NAME (LG) slip through for a Speed Queen unit before the MPN-prefix override caught it.",
     caption: "Proves the pipeline works outside its original dishwasher-only design — same logic, applied to laundry appliances, deliberately shallower depth than Tier 1.",
   },
 ];
@@ -379,7 +379,7 @@ function Dashboard() {
               <div className="text-sm font-medium text-slate-800 mb-1">Manufacturer / brand resolution</div>
               <p className="text-xs text-slate-500 leading-relaxed">
                 An AUTHORITATIVE_BRAND_MANUFACTURER override table that beats naive majority-vote — caught and fixed
-                a real Speed Queen → Whirlpool mis-attribution bug during Tier 2 development.
+                a real Speed Queen mis-attribution bug (TC5003BN mislabeled as LG) during Tier 2 development.
               </p>
             </div>
           </div>
